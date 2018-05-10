@@ -1,17 +1,32 @@
-group 'com.vocalink.interview'
-version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
+plugins {
+    id 'net.ltgt.apt' version '0.10'
+}
 
 repositories {
     mavenCentral()
 }
 
+group 'com.vocalink.interview'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.vocalink.interview.VendingMachineApp'
+
+sourceCompatibility = 1.8
+
 dependencies {
-    testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
-    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+    apt "org.projectlombok:lombok:1.16.20"
+
+    compile 'ch.qos.logback:logback-classic:1.1.3'
+
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
 
 test {
@@ -24,4 +39,8 @@ test {
     reports {
         html.enabled = true
     }
+}
+
+run {
+    standardInput = System.in
 }
