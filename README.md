@@ -26,17 +26,17 @@ To run the acceptance tests:
 ## Running the app
 
 In a real vending machine we have signal lines that are coming in from keypad, coin reader, supplier buttons.
-We also have output lines for the LCD display, product and coin release.
+We also have output lines for the display, product release and coin release.
 
 In the context of this console app, I have described the different input signals as text commands:
-- "keypad 100" - select product 100 using keypad
-- "coin 50" - insert a 50p coin
-- "supplierReset" - press the supplier reset button
-- "supplierStop" - press the supplier stop button
+- `keypad 100` - select product 100 using keypad
+- `coin 50` - insert a 50p coin
+- `supplierReset` - press the supplier reset button
+- `supplierStop` - press the supplier stop button
 
-To keep the application simple I have use the display to describe all the actions.
+To keep the application simple I have only used the display as output.
 
-How to run the console app:
+To run the console app:
 ```
 ./gradlew run --console plain
 ```
